@@ -25,4 +25,10 @@ describe('list path', {:type => :feature}) do
     expect(page).to have_content('phone: 503-747-3455')
     expect(page).to have_content('address: 2424 Main St ,Portland, OR, 97485')
   end
+  it "delete item" do
+    visit('/contact/1')
+    click_button('Delete!')
+    visit('/')
+    expect(page).to have_no_content('Name: McGregor, Nate')
+  end
 end
