@@ -1,9 +1,10 @@
 class Contact
   @@list = []
   attr_reader :id
-  attr_accessor :name, :phone, :street, :city, :state, :zip
-  def initialize(name,phone,street,city,state,zip)
+  attr_accessor :name,:last, :phone, :street, :city, :state, :zip
+  def initialize(name,last,phone,street,city,state,zip)
     @name = name
+    @last = last
     @phone = phone
     @street = street
     @city = city
@@ -25,7 +26,12 @@ class Contact
   end
 
   def self.find(id)
-    @@list[id - 1]
+    contact_id = id.to_i()
+    @@list.each do |contact|
+      if contact.id == contact_id
+        return contact
+      end
+    end
   end
-  
+
 end

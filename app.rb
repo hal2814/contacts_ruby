@@ -11,12 +11,13 @@ end
 
 post('/') do
   name = params['name']
+  last = params['last']
   phone = params['phone']
   street = params['street']
   city = params['city']
   state = params['state']
   zip = params['zip']
-  contact = Contact.new(name,phone,street,city,state,zip)
+  contact = Contact.new(name,last,phone,street,city,state,zip)
   contact.save()
   @list = Contact.all()
   # binding.pry
