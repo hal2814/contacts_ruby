@@ -31,4 +31,28 @@ describe('list path', {:type => :feature}) do
     visit('/')
     expect(page).to have_no_content('Name: McGregor, Nate')
   end
+  it "will modify object" do
+    visit('/')
+    fill_in('name', :with => 'Nate')
+    fill_in('last', :with => 'McGregor')
+    fill_in('phone', :with => '503-747-3455')
+    fill_in('street', :with => '2424 Main St')
+    fill_in('city', :with => 'Portland')
+    fill_in('state', :with => 'OR')
+    fill_in('zip', :with => '97485')
+    click_button('Go!')
+    visit('/contact/1')
+    click_link('Update your contact')
+    visit('/update/1')
+    fill_in('name', :with => 'Bob')
+    fill_in('last', :with => 'Joe')
+    fill_in('phone', :with => '503-747-3455')
+    fill_in('street', :with => '2424 Main St')
+    fill_in('city', :with => 'Portland')
+    fill_in('state', :with => 'OR')
+    fill_in('zip', :with => '97485')
+    click_button('Update')
+    visit('/')
+    expect(page).to have_content('Joe, Bob')
+  end
 end
