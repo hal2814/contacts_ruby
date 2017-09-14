@@ -24,6 +24,14 @@ post('/') do
   erb(:list)
 end
 
+post('/contact/:id') do
+
+  @contact = Contact.find(params[:id])
+  binding.pry
+  Contact.delete(@contact.id)
+  erb(:contact)
+end
+
 get('/contact/:id') do
   @contact = Contact.find(params[:id])
   erb(:contact)

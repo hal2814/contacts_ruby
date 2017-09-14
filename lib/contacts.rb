@@ -34,4 +34,19 @@ class Contact
     end
   end
 
+  def update
+   @@list.each do |item|
+     if item.name == self.name
+       item.rank = self.rank
+     end
+   end
+ end
+
+ def self.delete(del_id)
+    @@list.map do |contact|
+      if contact.id == del_id
+      @@list.delete(contact)
+      end
+    end
+  end
 end

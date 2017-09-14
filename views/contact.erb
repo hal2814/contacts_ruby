@@ -1,5 +1,7 @@
 <h2>Name: <%= @contact.name %> <%= @contact.last %></h2>
 <h3>phone: <%= @contact.phone %></h3>
 <h3>address: <%= @contact.street %> ,<%=@contact.city%>, <%=@contact.state%>, <%=@contact.zip%></h3>
-
+<form action="/contact/<%= @contact.id %>" method="post">
+  <button type="submit" class="btn">Delete!</button>
+</form>
 <h4><a href='/'>Return home</a></h4>

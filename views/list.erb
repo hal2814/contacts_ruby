@@ -1,7 +1,7 @@
 <h2>List of contacts</h2>
 
 <% @list.each do |contact| %>
-  <h4><a href="/contact/<%= contact.id %>"><%= contact.last %>, <%= contact.name %></a></h4>
+  <h4><a href="/contact/<%= contact.id %>"><%= contact.last %>,<%= contact.name %></a></h4>
 <% end %>
 
 <h4>Add a address to the list:</h4>
