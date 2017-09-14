@@ -27,6 +27,5 @@ class Contact
   def self.find(id)
     @@list[id - 1]
   end
-
-
+  
 end
